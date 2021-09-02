@@ -1,6 +1,6 @@
 # Atena Go Driver
 
-[![docs-source](https://img.shields.io/badge/source-atenadb-9cf?style=for-the-badge&logo=go&labelColor=2a2a2a)](https://github.com/mchl-coder/atenadb-go-driver)
+[![docs-source](https://img.shields.io/badge/source-atenadb-9cf?e&logo=go&labelColor=2a2a2a)](https://github.com/mchl-coder/atenadb-go-driver) [![Go Report Card](https://goreportcard.com/badge/github.com/mchl-coder/atenadb-go-driver)](https://goreportcard.com/report/github.com/mchl-coder/atenadb-go-driver)
 
 # Getting started
 
