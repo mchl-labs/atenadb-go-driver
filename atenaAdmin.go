@@ -208,7 +208,7 @@ func (client *Manage) DeleteDB(name string) bool {
 	return r.GetSuccessful()
 }
 
-// Logout
+// Logout closes the current session
 func (client *Manage) Logout() bool {
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
