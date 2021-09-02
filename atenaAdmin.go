@@ -14,7 +14,7 @@ import (
 )
 
 // Manage implements atena Db operations
-type Manage struct{
+type Manage struct {
 
 	// User info
 	user string
@@ -27,9 +27,8 @@ type Manage struct{
 
 	// gRPC Connection
 	conn *grpc.ClientConn
-	c pb.AtenaDBClient
+	c    pb.AtenaDBClient
 }
-
 
 // BuildAdmin creates the admin DB client
 func BuildAdmin(user string, password string, url string) (*Manage, error) {
@@ -48,7 +47,7 @@ func BuildAdmin(user string, password string, url string) (*Manage, error) {
 
 	client.conn = conn
 	client.c = c
-	
+
 	token, err := client.auth(user, password, url)
 	if err != nil || token == "" {
 		return client, err
@@ -58,7 +57,7 @@ func BuildAdmin(user string, password string, url string) (*Manage, error) {
 	client.user = user
 	client.url = url
 
-	return client,nil
+	return client, nil
 }
 
 // BuildAdminDefault creates the admin DB client with default url
@@ -75,10 +74,10 @@ func BuildAdminDefault(user string, password string) (*Manage, error) {
 	}
 
 	c := pb.NewAtenaDBClient(conn)
-	
+
 	client.conn = conn
 	client.c = c
-	
+
 	token, err := client.auth(user, password, address)
 	if err != nil || token == "" {
 		return client, err
@@ -100,7 +99,7 @@ func (client *Manage) auth(user string, password string, url string) (string, er
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
-	r, err := client.c.AuthUser(ctx, &pb.AuthUserLookupModel{User: user,Password: password})
+	r, err := client.c.AuthUser(ctx, &pb.AuthUserLookupModel{User: user, Password: password})
 	if err != nil || !r.Successful {
 		return "", errors.New("Error")
 	}
@@ -226,6 +225,6 @@ func (client *Manage) Logout() bool {
 }
 
 // Dispose connection
-func (client *Manage) Dispose(){
+func (client *Manage) Dispose() {
 	client.conn.Close()
 }

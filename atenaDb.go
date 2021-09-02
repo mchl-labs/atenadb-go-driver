@@ -14,17 +14,17 @@ import (
 )
 
 const (
-	address     = "localhost:5001"
+	address = "localhost:5001"
 )
 
 // Ops implements atena Db operations
-type Ops struct{
+type Ops struct {
 
 	// User info
 	user string
 
 	// DB connection info
-	DB string
+	DB  string
 	url string
 
 	// Auth
@@ -32,12 +32,11 @@ type Ops struct{
 
 	// gRPC Connection
 	conn *grpc.ClientConn
-	c pb.AtenaDBClient
+	c    pb.AtenaDBClient
 }
 
-
 // Build creates the DB client
-func Build(user string, password string, url string, db string) (*Ops,error) {
+func Build(user string, password string, url string, db string) (*Ops, error) {
 	client := new(Ops)
 	log.Println("done")
 	// Set up a connection to the server.
@@ -69,7 +68,7 @@ func Build(user string, password string, url string, db string) (*Ops,error) {
 }
 
 // BuildDefault creates the DB client with default url
-func BuildDefault(user string, password string, db string) (*Ops,error) {
+func BuildDefault(user string, password string, db string) (*Ops, error) {
 	client := new(Ops)
 	// Set up a connection to the server.
 	config := &tls.Config{
@@ -108,7 +107,7 @@ func (client *Ops) auth(user string, password string, url string, db string) (st
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
-	r, err := client.c.Auth(ctx, &pb.AuthLookupModel{User: user,Password: password, Db: db})
+	r, err := client.c.Auth(ctx, &pb.AuthLookupModel{User: user, Password: password, Db: db})
 	if err != nil || !r.Successful {
 		return "", errors.New("Error")
 	}
@@ -197,6 +196,6 @@ func (client *Ops) RemoveAll() bool {
 }
 
 // Dispose connection
-func (client *Ops) Dispose(){
+func (client *Ops) Dispose() {
 	client.conn.Close()
 }
