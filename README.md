@@ -86,7 +86,7 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := atenaAdmin.CreateUser(username, password)
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
 
   ### Change Password
 
@@ -97,7 +97,7 @@ Now that you've retreived the connection to the database, all that's left is to 
    result := atenaAdmin.ChangePassword(newpassword)
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
 
   ### Create New DB ( using the default db engine ) ⚙️
 
@@ -118,7 +118,7 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := atenaAdmin.CreateDB("mynewdbname")
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
 
   ### Create New DB ( using the Atena RBTree Engine ) ⚙️
 
@@ -144,7 +144,7 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := atenaAdmin.CreateDBRBT("mynewdbname", bool: lfu, bool: on-disk-persistence)
   ```
 
-  Returns a `bool` which represents if the operation get successful. 
+  Returns a `bool` representing the result of the operation. 
 
   ### Create New DB ( using the Atena HT Engine ) ⚙️
 
@@ -170,7 +170,7 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := atenaAdmin.CreateDBHT("mynewdbname", bool: lfu, bool: on-disk-persistence);
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
 
   ### Delete DB
 
@@ -178,7 +178,7 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := atenaAdmin.DeleteDB(dbname)
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
   ### Logout
 
   > 💡: We recommend logging out if you finished using AtenaAdmin. This will boost AtenaDb performance.
@@ -189,7 +189,7 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := atenaAdmin.Logout();
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
 
 ## AtenaDb
 
@@ -207,7 +207,7 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := db.Set("hello", "hi")
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
 
   ### Get Value ( relative to the key we ask for)
 
@@ -238,9 +238,11 @@ Now that you've retreived the connection to the database, all that's left is to 
 
   // SET a counter.
 
-  if result := db.Set("hello", "hi")
+  result := db.Set("clic", "1")
+
+  if result
   {
-      Console.WriteLine("SET clic : 1")
+      log.Println("SET clic : 1")
   }
 
   // Increment the counter by 11 units
@@ -251,7 +253,7 @@ Now that you've retreived the connection to the database, all that's left is to 
 	log.Println("KEY: clic; NEWVALUE: " + newvalue)
   ```
 
-  Returns a `bool` with the status of the current operation and if the operation was successful the new value related to the counter we wanted to modify.
+  Returns a `bool` with the status of the current operation and, if the operation was successful, the new value related to the counter we wanted to modify.
 
   ### Delete K/V record
 
@@ -259,7 +261,7 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := atena.Del("hello")
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
 
   ### RemoveAll records
 
@@ -269,4 +271,4 @@ Now that you've retreived the connection to the database, all that's left is to 
   result := atena.RemoveAll()
   ```
 
-  Returns a `bool` which represents if the operation get successful.
+  Returns a `bool` representing the result of the operation.
