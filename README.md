@@ -1,6 +1,6 @@
 # Atena Go Driver
 
-[![docs-source](https://img.shields.io/badge/source-atenadb-9cf?e&logo=go&labelColor=2a2a2a)](https://github.com/mchl-coder/atenadb-go-driver) [![Go Report Card](https://goreportcard.com/badge/github.com/mchl-coder/atenadb-go-driver)](https://goreportcard.com/report/github.com/mchl-coder/atenadb-go-driver)
+[![docs-source](https://img.shields.io/badge/source-atenadb-9cf?e&logo=go&labelColor=2a2a2a)](https://github.com/mchl-labs/atenadb-go-driver) [![Go Report Card](https://goreportcard.com/badge/github.com/mchl-labs/atenadb-go-driver)](https://goreportcard.com/report/github.com/mchl-labs/atenadb-go-driver)
 
 # Getting started
 
@@ -14,7 +14,7 @@ So let's start developing!!!
 ## Step 1. Import the `atena-go-driver` module
 
   ```bash
-   go get github.com/mchl-coder/atenadb-go-driver
+   go get github.com/mchl-labs/atenadb-go-driver
   ```
 
 ## Step 2. Import the Required Namespace
@@ -23,7 +23,7 @@ So let's start developing!!!
    import (
       "fmt"
       "context"
-      "github.com/mchl-coder/atenadb-go-driver"
+      "github.com/mchl-labs/atenadb-go-driver"
    )
   ```
 
